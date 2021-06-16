@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/rv_tab_lay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <com.example.mylibrary.SlidingTab
+            android:id="@+id/rv_tab"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:backgroundColor="@color/tab_bg_Color"
+            app:tab_selected_text_color="@color/tab_select_text_color"
+            app:tab_unselected_text_color="@color/tab_unselect_text_color"
+            app:tab_selected_inidcator_color="@color/tab_select_text_color"/>
+
+        <View
+            android:id="@+id/selected_tab_indicator"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/tab_select_text_color"
+            android:layout_below="@+id/rv_tab"/>
+    </RelativeLayout>
+
+    <FrameLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+</LinearLayout>

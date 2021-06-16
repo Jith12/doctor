@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr format="color" name="slidingtab_backgroundColor"/>
+    <declare-styleable name="Slidingtablayoute">
+        <attr format="color" name="backgroundColor"/>
+        <attr format="color" name="tab_selected_text_color"/>
+        <attr format="color" name="tab_unselected_text_color"/>
+        <attr format="color" name="tab_selected_inidcator_color"/>
+        <attr format="color" name="tab_unselected_inidcator_color"/>
+    </declare-styleable>
+</resources>

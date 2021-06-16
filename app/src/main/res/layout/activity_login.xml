@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.LoginActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="@dimen/_5sdp"
+        android:layout_margin="@dimen/_5sdp">
+
+       <FrameLayout
+           android:layout_width="match_parent"
+           android:layout_height="match_parent">
+
+           <LinearLayout
+               android:layout_width="match_parent"
+               android:layout_height="match_parent"
+               android:orientation="vertical"
+               android:layout_gravity="center"
+               android:gravity="center">
+
+               <androidx.appcompat.widget.AppCompatImageView
+                   android:layout_width="@dimen/_80sdp"
+                   android:layout_height="@dimen/_100sdp"
+                   android:src="@drawable/logo_splash"
+                   android:layout_gravity="center"
+                   android:scaleType="fitCenter"/>
+
+               <androidx.appcompat.widget.AppCompatTextView
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:textSize="@dimen/_11sdp"
+                   android:text="Welcome back!"
+                   android:layout_gravity="center"
+                   android:gravity="center"
+                   android:textStyle="normal"
+                   android:padding="@dimen/_5sdp"/>
+
+               <androidx.appcompat.widget.AppCompatTextView
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:textSize="@dimen/_11sdp"
+                   android:text="Please login to your account"
+                   android:layout_gravity="center"
+                   android:gravity="center"
+                   android:textStyle="normal"
+                   android:padding="@dimen/_5sdp"/>
+
+               <studio.carbonylgroup.textfieldboxes.TextFieldBoxes
+                   android:id="@+id/log_emailtxt"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:layout_marginStart="@dimen/_20sdp"
+                   android:layout_marginEnd="@dimen/_20sdp"
+                   android:layout_marginBottom="@dimen/_5sdp"
+                   android:layout_marginTop="@dimen/_5sdp"
+                   app:errorColor="@android:color/holo_red_light"
+                   app:hasClearButton="true"
+                   app:helperText="Enter Your Email Id"
+                   app:isResponsiveIconColor="true"
+                   app:labelText="Email Id"
+                   app:panelBackgroundColor="@android:color/transparent"
+                   app:primaryColor="@color/primarydark"
+                   app:secondaryColor="@color/primary"
+                   android:layout_gravity="center"
+                   app:useDenseSpacing="true">
+
+                   <studio.carbonylgroup.textfieldboxes.ExtendedEditText
+                       android:id="@+id/log_emailid"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:imeOptions="actionNext"
+                       android:inputType="textPersonName"
+                       android:textColor="@color/black"
+                       android:textSize="@dimen/_12sdp"
+                       android:textStyle="normal" />
+
+               </studio.carbonylgroup.textfieldboxes.TextFieldBoxes>
+
+               <studio.carbonylgroup.textfieldboxes.TextFieldBoxes
+                   android:id="@+id/log_passtxt"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:layout_marginStart="@dimen/_20sdp"
+                   android:layout_marginEnd="@dimen/_20sdp"
+                   android:layout_marginBottom="@dimen/_5sdp"
+                   android:layout_marginTop="@dimen/_5sdp"
+                   app:errorColor="@android:color/holo_red_light"
+                   app:hasClearButton="true"
+                   app:helperText="Enter Your Password"
+                   app:isResponsiveIconColor="true"
+                   app:labelText="Password"
+                   app:panelBackgroundColor="@android:color/transparent"
+                   app:primaryColor="@color/primarydark"
+                   app:secondaryColor="@color/primary"
+                   android:layout_gravity="center"
+                   app:useDenseSpacing="true">
+
+                   <studio.carbonylgroup.textfieldboxes.ExtendedEditText
+                       android:id="@+id/log_password"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:imeOptions="actionDone"
+                       android:inputType="numberPassword"
+                       android:textColor="@color/black"
+                       android:textSize="@dimen/_12sdp"
+                       android:textStyle="normal" />
+
+               </studio.carbonylgroup.textfieldboxes.TextFieldBoxes>
+
+               <!--<com.ornach.nobobutton.NoboButton
+                   android:id="@+id/log_signup"
+                   android:layout_width="@dimen/_120sdp"
+                   android:layout_height="@dimen/_35sdp"
+                   android:layout_gravity="center"
+                   android:layout_margin="@dimen/_10sdp"
+                   android:gravity="center"
+                   app:nb_backgroundColor="@color/white"
+                   app:nb_borderColor="@color/primarydark"
+                   app:nb_borderWidth="@dimen/_1sdp"
+                   app:nb_focusColor="@color/primarydark"
+                   app:nb_gravity="center"
+                   app:nb_iconPadding="@dimen/_5sdp"
+                   app:nb_iconPosition="left"
+                   app:nb_radius="@dimen/_5sdp"
+                   app:nb_text="Sign Up"
+                   app:nb_textAllCaps="true"
+                   app:nb_textColor="@color/primarydark"
+                   app:nb_textSize="@dimen/_11sdp"
+                   app:nb_textStyle="normal" />-->
+
+               <com.ornach.nobobutton.NoboButton
+                   android:id="@+id/log_login"
+                   android:layout_width="@dimen/_120sdp"
+                   android:layout_height="@dimen/_35sdp"
+                   android:layout_gravity="center"
+                   android:layout_margin="@dimen/_5sdp"
+                   android:gravity="center"
+                   app:nb_backgroundColor="@color/primary"
+                   app:nb_borderColor="@color/primarydark"
+                   app:nb_borderWidth="@dimen/_1sdp"
+                   app:nb_focusColor="@color/primarydark"
+                   app:nb_gravity="center"
+                   app:nb_iconPadding="@dimen/_5sdp"
+                   app:nb_iconPosition="left"
+                   app:nb_radius="@dimen/_5sdp"
+                   app:nb_text="Login"
+                   app:nb_textAllCaps="true"
+                   app:nb_textColor="@color/white"
+                   app:nb_textSize="@dimen/_11sdp"
+                   app:nb_textStyle="normal" />
+
+               <androidx.appcompat.widget.AppCompatTextView
+                   android:id="@+id/log_forgetpass"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:textSize="@dimen/_12sdp"
+                   android:text="Forget Password ?"
+                   android:layout_gravity="center"
+                   android:gravity="center"
+                   android:textStyle="normal"
+                   android:layout_marginTop="@dimen/_5sdp"
+                   android:padding="@dimen/_5sdp"/>
+
+           </LinearLayout>
+
+           <androidx.appcompat.widget.AppCompatTextView
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:textSize="@dimen/_10sdp"
+               android:text="Term of use Privacy Policy"
+               android:layout_gravity="bottom|center"
+               android:gravity="bottom|center"
+               android:textStyle="normal"
+               android:layout_marginTop="@dimen/_5sdp"
+               android:padding="@dimen/_5sdp"/>
+
+       </FrameLayout>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

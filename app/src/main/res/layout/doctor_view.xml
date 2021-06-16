@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_margin="@dimen/_5sdp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_margin="@dimen/_5sdp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:gravity="start"
+                android:fontFamily="@font/regular"
+                android:textSize="@dimen/_11sdp"
+                android:textAllCaps="false"
+                android:text="Start Time :"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/doc_starttime"
+                android:layout_gravity="center"
+                android:gravity="end"
+                android:layout_weight="1"
+                android:fontFamily="@font/regular"
+                android:textSize="@dimen/_11sdp"
+                android:textColor="@color/black"
+                android:textAllCaps="false"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_margin="@dimen/_5sdp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:gravity="start"
+                android:fontFamily="@font/regular"
+                android:textSize="@dimen/_11sdp"
+                android:textAllCaps="false"
+                android:text="End Time :"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/doc_endtime"
+                android:layout_gravity="center"
+                android:gravity="end"
+                android:layout_weight="1"
+                android:fontFamily="@font/regular"
+                android:textSize="@dimen/_11sdp"
+                android:textColor="@color/black"
+                android:textAllCaps="false"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_margin="@dimen/_5sdp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:gravity="start"
+                android:fontFamily="@font/regular"
+                android:textSize="@dimen/_11sdp"
+                android:textAllCaps="false"
+                android:text="Time Zone :"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/doc_time"
+                android:layout_gravity="center"
+                android:gravity="end|center"
+                android:layout_weight="1"
+                android:fontFamily="@font/regular"
+                android:textSize="@dimen/_11sdp"
+                android:textColor="@color/black"
+                android:textAllCaps="false"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_margin="@dimen/_5sdp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:gravity="start"
+                android:fontFamily="@font/regular"
+                android:textSize="@dimen/_11sdp"
+                android:textAllCaps="false"
+                android:text="Status :"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/doc_status"
+                android:layout_gravity="center"
+                android:gravity="end"
+                android:layout_weight="1"
+                android:fontFamily="@font/regular"
+                android:textSize="@dimen/_11sdp"
+                android:textColor="@color/black"
+                android:textAllCaps="false"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_margin="@dimen/_5sdp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:gravity="start"
+                android:fontFamily="@font/regular"
+                android:textSize="@dimen/_11sdp"
+                android:textAllCaps="false"
+                android:text="Booked By :"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/doc_booked"
+                android:layout_gravity="center"
+                android:gravity="end"
+                android:layout_weight="1"
+                android:fontFamily="@font/regular"
+                android:textSize="@dimen/_11sdp"
+                android:textColor="@color/black"
+                android:textAllCaps="false"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</FrameLayout>

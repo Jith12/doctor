@@ -1,0 +1,5 @@
+include ':spinnerdialog'
+include ':card'
+include ':mylibrary'
+include ':app'
+rootProject.name = "saver"
