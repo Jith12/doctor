@@ -14,6 +14,7 @@ import com.example.saver.Response.LoginResponse;
 import com.example.saver.Response.PlaceResponse;
 import com.example.saver.Response.ProductResponse;
 import com.example.saver.Response.SaveProfile;
+import com.example.saver.Response.ShareResponse;
 import com.example.saver.Response.ViewResponse;
 
 import okhttp3.MultipartBody;
@@ -149,5 +150,15 @@ public interface RetrofitAPI {
     @Headers({"Authorization:Basic YW5kcm9pZDphcGs=", "x-api-key:saver"})
     @GET("productlist")
     Call<ProductResponse> productlist();
+
+    @Headers({"Authorization:Basic YW5kcm9pZDphcGs=", "x-api-key:saver"})
+    @FormUrlEncoded
+    @POST("sharesave")
+    Call<ShareResponse> sharevalue(
+            @Field("doctorid") String doctorid,
+            @Field("productid") String productid,
+            @Field("customerno") String customerno,
+            @Field("textmsg") String textmsg
+    );
 
 }

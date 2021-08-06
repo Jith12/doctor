@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginBottom="@dimen/_5sdp"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/regular"
+                android:textSize="@dimen/_11sdp"
+                android:layout_marginStart="@dimen/_5sdp"
+                android:layout_marginEnd="@dimen/_5sdp"
+                android:textColor="@color/colorAccent"
+                android:drawablePadding="@dimen/_5sdp"
+                android:drawableEnd="@drawable/mandatory"
+                android:text="Customer Mobile No"/>
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/cus_mobileno"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_35sdp"
+                android:background="@drawable/round_corner_border"
+                android:textSize="@dimen/_12sdp"
+                android:layout_gravity="center"
+                android:gravity="start|center"
+                android:fontFamily="@font/regular"
+                android:textColor="@color/colorAccent"
+                android:inputType="number"
+                android:imeOptions="actionNext"
+                android:enabled="true"
+                android:maxLength="10"
+                android:hint="Enter Mobile No"
+                android:paddingStart="@dimen/_5sdp"
+                android:paddingEnd="@dimen/_5sdp"
+                android:clickable="true"
+                android:text=""/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginBottom="@dimen/_5sdp"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/regular"
+                android:textSize="@dimen/_11sdp"
+                android:layout_marginStart="@dimen/_5sdp"
+                android:layout_marginEnd="@dimen/_5sdp"
+                android:textColor="@color/colorAccent"
+                android:drawablePadding="@dimen/_5sdp"
+                android:drawableEnd="@drawable/mandatory"
+                android:text="Message"/>
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/cus_txtmsg"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_35sdp"
+                android:layout_gravity="center"
+                android:gravity="start|center"
+                android:background="@drawable/round_corner_border"
+                android:textSize="@dimen/_12sdp"
+                android:textColorHint="@color/warm_grey"
+                android:fontFamily="@font/regular"
+                android:textColor="@color/colorAccent"
+                android:inputType="text"
+                android:hint="Enter Your Text Message"
+                android:imeOptions="actionNext"
+                android:paddingStart="@dimen/_5sdp"
+                android:paddingEnd="@dimen/_5sdp"
+                android:text=""/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_margin="@dimen/_2sdp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <com.ornach.nobobutton.NoboButton
+                android:layout_weight="1"
+                android:id="@+id/cus_close_btn"
+                android:layout_width="@dimen/_100sdp"
+                android:layout_height="@dimen/_30sdp"
+                android:layout_margin="@dimen/_20sdp"
+                app:nb_text="Close"
+                app:nb_borderColor="@color/error_text"
+                app:nb_borderWidth="@dimen/_1sdp"
+                app:nb_backgroundColor="@color/error_background"
+                app:nb_focusColor="@color/colorPrimaryDark"
+                app:nb_textColor="@color/error_text"
+                app:nb_radius="@dimen/_5sdp"
+                app:nb_gravity="center"
+                app:nb_textAllCaps="true"
+                app:nb_textSize="@dimen/_12sdp"
+                app:nb_textStyle="bold"
+                app:nb_iconPosition="left"
+                app:nb_iconColor="@color/error_text"
+                app:nb_fontIcon="@string/icon"
+                app:nb_iconPadding="@dimen/_5sdp"
+                app:nb_drawableResource="@drawable/no"/>
+
+            <com.ornach.nobobutton.NoboButton
+                android:layout_weight="1"
+                android:id="@+id/cus_send_btn"
+                android:layout_width="@dimen/_100sdp"
+                android:layout_height="@dimen/_30sdp"
+                android:layout_margin="@dimen/_20sdp"
+                app:nb_text="Send"
+                app:nb_borderColor="@color/success_text"
+                app:nb_borderWidth="@dimen/_1sdp"
+                app:nb_backgroundColor="@color/success_background"
+                app:nb_focusColor="@color/colorPrimaryDark"
+                app:nb_textColor="@color/success_text"
+                app:nb_radius="@dimen/_5sdp"
+                app:nb_gravity="center"
+                app:nb_textAllCaps="true"
+                app:nb_textSize="@dimen/_12sdp"
+                app:nb_textStyle="bold"
+                app:nb_iconPosition="left"
+                app:nb_iconColor="@color/success_text"
+                app:nb_fontIcon="@string/icon"
+                app:nb_iconPadding="@dimen/_5sdp"
+                app:nb_drawableResource="@drawable/yes"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
