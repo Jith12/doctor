@@ -47,4 +47,20 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
     </style>
+
+    <!-- Dialog -->
+    <style name="DialogStyle" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="android:windowNoTitle">true</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="android:fontFamily">@font/regular</item>
+        <item name="android:windowFullscreen">false</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowBackground">@android:color/white</item>
+        <item name="android:textColor">@android:color/tertiary_text_dark</item>
+        <item name="android:windowEnterAnimation">@anim/animate_slide_up_enter</item>
+        <item name="android:windowExitAnimation">@anim/animate_slide_down_exit</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
 </resources>
