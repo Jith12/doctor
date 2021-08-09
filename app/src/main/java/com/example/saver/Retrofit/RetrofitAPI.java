@@ -11,6 +11,7 @@ import com.example.saver.Response.CustomerResponse;
 import com.example.saver.Response.DoctorResponse;
 import com.example.saver.Response.LocationResponse;
 import com.example.saver.Response.LoginResponse;
+import com.example.saver.Response.MobileNoResponse;
 import com.example.saver.Response.PlaceResponse;
 import com.example.saver.Response.ProductResponse;
 import com.example.saver.Response.SaveProfile;
@@ -159,6 +160,13 @@ public interface RetrofitAPI {
             @Field("productid") String productid,
             @Field("customerno") String customerno,
             @Field("textmsg") String textmsg
+    );
+
+    @Headers({"Authorization:Basic YW5kcm9pZDphcGs=", "x-api-key:saver"})
+    @FormUrlEncoded
+    @POST("customerNolist")
+    Call<MobileNoResponse> mobileNoList(
+            @Field("doctorid") String doctorid
     );
 
 }

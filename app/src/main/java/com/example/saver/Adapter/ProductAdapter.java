@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -24,6 +25,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.saver.Others.Loader;
 import com.example.saver.Others.Snack;
 import com.example.saver.R;
+import com.example.saver.Response.MobileNoResponse;
 import com.example.saver.Response.ProductResponse;
 import com.example.saver.Response.ShareResponse;
 import com.example.saver.Retrofit.ErrorUtils;
@@ -37,12 +39,15 @@ import org.jetbrains.annotations.NotNull;
 
 import java.net.SocketTimeoutException;
 import java.net.UnknownHostException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+import in.galaxyofandroid.spinerdialog.SpinnerDialog;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import thebat.lib.validutil.ValidUtils;
 
 public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHolder> {
 
@@ -104,6 +109,10 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
         private Snack snack;
         private AppCompatEditText cusMobileNo, cusTxtMsg;
         private NoboButton btnClose, btnSend;
+        private ArrayList<String> mobileList = new ArrayList<>();
+        private SpinnerDialog mobileDialog;
+        private AppCompatTextView tvDocument;
+        private LinearLayout kycLayout;
 
         public EditDialog() {
         }
@@ -135,15 +144,39 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
         public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
             super.onViewCreated(view, savedInstanceState);
 
-            loader = new Loader(getActivity());
+            loader = new Loader(Objects.requireNonNull(getActivity()));
             snack = new Snack(getActivity());
 
             doctorid = Prefs.getString("e_id", null);
 
-            cusMobileNo = view.findViewById(R.id.cus_mobileno);
+            //cusMobileNo = view.findViewById(R.id.cus_mobileno);
             cusTxtMsg = view.findViewById(R.id.cus_txtmsg);
             btnClose = view.findViewById(R.id.cus_close_btn);
             btnSend = view.findViewById(R.id.cus_send_btn);
+
+            kycLayout = view.findViewById(R.id.kyc_layout);
+            tvDocument = view.findViewById(R.id.sell_kyc_doc);
+
+            mobileDialog = new SpinnerDialog(getActivity(), new ArrayList<>(),"Select Mobileno","Close");
+            mobileDialog.setTitleColor(getResources().getColor(R.color.colorPrimaryDark));
+            mobileDialog.setTitleColor(getResources().getColor(R.color.colorPrimaryDark));
+            mobileDialog.setItemDividerColor(getResources().getColor(R.color.colorAccent));
+            mobileDialog.setCloseColor(getResources().getColor(R.color.colorAccent));
+
+            if (!ValidUtils.isNetworkAvailable(requireActivity())){
+                snack.network("No Internet Connection!..");
+            }else {
+                MobileNoList();
+            }
+
+            kycLayout.setOnClickListener(view1 -> {
+                mobileDialog.showSpinerDialog();
+                mobileDialog.setCancellable(false);
+                mobileDialog.bindOnSpinerListener((item, position) -> {
+                    tvDocument.setText(item);
+                    //eetKYC.setEnabled(true);
+                });
+            });
 
             btnClose.setOnClickListener(v -> {
                 getDialog().dismiss();
@@ -152,12 +185,67 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
             btnSend.setOnClickListener(v -> {
                 if(validateNo())
                 {
-                    String mobile_no = cusMobileNo.getText().toString().trim();
-                    String txtmessage = cusTxtMsg.getText().toString().trim();
+                    //String mobile_no = cusMobileNo.getText().toString().trim();
+                    String mobile_no = tvDocument.getText().toString().trim();
+                    String txtmessage = Objects.requireNonNull(cusTxtMsg.getText()).toString().trim();
                     senddata(doctorid, pid, mobile_no, txtmessage);
                 }
             });
 
+        }
+
+        private void MobileNoList() {
+            loader.show("");
+            RetrofitAPI api = RetrofitBASE.getRetrofit(getActivity()).create(RetrofitAPI.class);
+            Call<MobileNoResponse> call = api.mobileNoList(doctorid);
+            call.enqueue(new Callback<MobileNoResponse>() {
+                @Override
+                public void onResponse(@NotNull Call<MobileNoResponse> call, @NotNull Response<MobileNoResponse> response) {
+                    try {
+                        if (response.isSuccessful()){
+                            MobileNoResponse data = response.body();
+                            loader.dismiss("");
+                            if (data != null){
+                                Boolean status = Objects.requireNonNull(data).getStatus();
+                                String message = data.getMessage();
+                                if (status){
+                                    List<MobileNoResponse.Datum> result = data.getData();
+                                    mobileList.clear();
+                                    for (int i=0; i<result.size(); i++){
+                                        mobileList.add(result.get(i).getCusMobileNo());
+                                    }
+                                    mobileDialog = new SpinnerDialog(getActivity(), mobileList,"Select Mobileno","Close");
+                                    mobileDialog.setTitleColor(getResources().getColor(R.color.colorPrimaryDark));
+                                    mobileDialog.setTitleColor(getResources().getColor(R.color.colorPrimaryDark));
+                                    mobileDialog.setItemDividerColor(getResources().getColor(R.color.colorAccent));
+                                    mobileDialog.setCloseColor(getResources().getColor(R.color.colorAccent));
+                                }else {
+                                    snack.timeout(message);
+                                }
+                            }
+                        }else {
+                            loader.dismiss("");
+                            ErrorUtils errorUtils = RetrofitERROR.parseError(response);
+                            snack.timeout(errorUtils.message());
+                            Log.e("MobileError", Objects.requireNonNull(errorUtils.message()));
+                        }
+                    }catch (Exception e){
+                        loader.dismiss("");
+                        Log.e("MobileException", Objects.requireNonNull(e.getMessage()));
+                    }
+                }
+                @Override
+                public void onFailure(@NotNull Call<MobileNoResponse> call, @NotNull Throwable t) {
+                    loader.dismiss("");
+                    if (t instanceof SocketTimeoutException){
+                        snack.timeout("Timeout, Retrying Again. Please Wait");
+                        new Handler().postDelayed(() -> MobileNoList(), 3000);
+                    }else if (t instanceof UnknownHostException){
+                        snack.timeout("Unknown Host, Check your URL");
+                    }
+                    Log.e("MobileFailure", Objects.requireNonNull(t.getMessage()));
+                }
+            });
         }
 
         private void senddata(String doctorid, String pid, String mobile_no, String txtmessage) {
@@ -207,7 +295,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
         }
 
         private boolean validateNo() {
-            String mobileno = cusMobileNo.getText().toString().trim();
+            String mobileno = tvDocument.getText().toString().trim();
             if (mobileno.isEmpty()) {
                 Toast.makeText(getActivity(), "Mobile No Field can't be empty!..", Toast.LENGTH_SHORT).show();
                 return false;

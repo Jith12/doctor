@@ -9,7 +9,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <LinearLayout
+        <!--<LinearLayout
             android:layout_marginTop="@dimen/_10sdp"
             android:layout_marginBottom="@dimen/_5sdp"
             android:layout_marginStart="@dimen/_10sdp"
@@ -49,6 +49,42 @@
                 android:paddingEnd="@dimen/_5sdp"
                 android:clickable="true"
                 android:text=""/>
+
+        </LinearLayout>-->
+
+        <LinearLayout
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginBottom="@dimen/_5sdp"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:id="@+id/kyc_layout"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_35sdp"
+            android:orientation="horizontal">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/sell_kyc_doc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:gravity="start|center"
+                android:fontFamily="@font/bold"
+                android:textSize="@dimen/_12sdp"
+                android:textColor="@color/colorBlack"
+                android:textAllCaps="false"
+                android:hint="Select Mobile No"
+                android:text=""/>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/more"
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:src="@drawable/more"
+                android:tint="@color/colorBlack"
+                android:layout_gravity="center"
+                android:scaleType="fitCenter"
+                android:layout_weight="0"/>
 
         </LinearLayout>
 
