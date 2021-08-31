@@ -59,8 +59,8 @@ public class RetrofitBASE {
                     .client(buildClient(context))
                     .addConverterFactory(GsonConverterFactory.create(gson))
                     //.baseUrl("http://192.168.1.46/saver/api/")
-                    //.baseUrl("http://192.168.43.76/saver/api/")
-                    .baseUrl("https://o2saver.com/api/")
+                    .baseUrl("http://192.168.43.76/saver/api/")
+                    //.baseUrl("https://o2saver.com/api/")
                     .build();
         }
         return retrofit;
